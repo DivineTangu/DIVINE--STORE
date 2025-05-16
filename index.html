@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divine Store - Premium Footwear & Club Jerseys</title>
+    <meta name="description" content="Divine Store offers premium footwear and authentic club jerseys with worldwide shipping. Shop the latest collections with exclusive deals.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+        tailwind.config={
+            theme:{
+                extend:{
+                    colors:{
+                        primary:'#0f172a',
+                        secondary:'#4f46e5'
+                    },
+                    borderRadius:{
+                        'none':'0px',
+                        'sm':'4px',
+                        DEFAULT:'8px',
+                        'md':'12px',
+                        'lg':'16px',
+                        'xl':'20px',
+                        '2xl':'24px',
+                        '3xl':'32px',
+                        'full':'9999px',
+                        'button':'8px'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .hero-section {
+            background-image: url(div.jpg);
+            background-size: contain;
+            background-position: initial;
+        }
+        
+        .gradient-overlay {
+            background: linear-gradient(90deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%);
+        }
+        
+        .category-card:hover .category-image {
+            transform: scale(1.05);
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+            transition: transform 0.5s ease;
+        }
+        
+        .newsletter-bg {
+            background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+        }
+        
+        .special-offers {
+            background-image: url('https://readdy.ai/api/search-image?query=luxury%20sports%20apparel%20with%20premium%20footwear%20and%20jerseys%20arranged%20elegantly%20on%20minimalist%20display%2C%20high-end%20fashion%20presentation%2C%20soft%20lighting%2C%20clean%20modern%20aesthetic%2C%20professional%20product%20arrangement%20with%20subtle%20shadows%2C%20spacious%20layout%20with%20focus%20on%20premium%20products&width=1600&height=600&seq=2&orientation=landscape');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        
+        .custom-checkbox {
+            display: none;
+        }
+        
+        .custom-checkbox + label {
+            position: relative;
+            padding-left: 35px;
+            cursor: pointer;
+            display: inline-block;
+        }
+        
+        .custom-checkbox + label:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #d1d5db;
+            background: #fff;
+            border-radius: 4px;
+        }
+        
+        .custom-checkbox:checked + label:before {
+            background: #0f172a;
+            border-color: #0f172a;
+        }
+        
+        .custom-checkbox:checked + label:after {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 3px;
+            width: 6px;
+            height: 11px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+        
+        .custom-switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+        
+        .custom-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #e5e7eb;
+            transition: .4s;
+            border-radius: 34px;
+        }
+        
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        
+        input:checked + .slider {
+            background-color: #0f172a;
+        }
+        
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+        
+        .product-carousel {
+            scrollbar-width: none;
+        }
+        
+        .product-carousel::-webkit-scrollbar {
+            display: none;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.6s ease forwards;
+        }
+        
+        .countdown-timer {
+            display: flex;
+            gap: 10px;
+            font-feature-settings: "tnum";
+            font-variant-numeric: tabular-nums;
+        }
+        
+        .countdown-box {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            padding: 10px;
+            min-width: 60px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+    <!-- Header Section -->
+    <header class="fixed w-full z-50 transition-all duration-300" id="header">
+        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="flex items-center">
+                <a href="#" class="text-3xl font-['Pacifico'] text-primary">logo</a>
+            </div>
+            
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#" class="text-gray-800 hover:text-primary transition-colors duration-300 font-medium">Home</a>
+                <a href="#" class="text-gray-800 hover:text-primary transition-colors duration-300 font-medium">Footwear</a>
+                <a href="#" class="text-gray-800 hover:text-primary transition-colors duration-300 font-medium">Jerseys</a>
+                <a href="#" class="text-gray-800 hover:text-primary transition-colors duration-300 font-medium">New Arrivals</a>
+                <a href="#" class="text-gray-800 hover:text-primary transition-colors duration-300 font-medium">Sale</a>
+            </nav>
+            
+            <div class="flex items-center space-x-4">
+                <div class="relative hidden md:block">
+                    <input type="text" placeholder="Search products..." class="pl-10 pr-4 py-2 w-64 rounded-full bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary/20 text-sm">
+                    <div class="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 flex items-center justify-center text-gray-500">
+                        <i class="ri-search-line"></i>
+                    </div>
+                </div>
+                
+                <div class="w-10 h-10 flex items-center justify-center relative cursor-pointer">
+                    <i class="ri-user-line text-xl"></i>
+                </div>
+                
+                <div class="w-10 h-10 flex items-center justify-center relative cursor-pointer">
+                    <i class="ri-heart-line text-xl"></i>
+                </div>
+                
+                <div class="w-10 h-10 flex items-center justify-center relative cursor-pointer">
+                    <i class="ri-shopping-bag-line text-xl"></i>
+                    <span class="absolute -top-1 -right-1 bg-primary text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">3</span>
+                </div>
+                
+                <div class="md:hidden w-10 h-10 flex items-center justify-center">
+                    <i class="ri-menu-line text-xl"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section h-screen relative">
+        <div class="absolute inset-0 gradient-overlay"></div>
+        <div class="container mx-auto px-4 h-full flex items-center">
+            <div class="w-full max-w-2xl relative z-10 animate-fade-in">
+                <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">Elevate Your Style with Premium Sportswear</h1>
+                <p class="text-lg md:text-xl mb-8 text-gray-700">Discover our exclusive collection of authentic club jerseys and designer footwear. Crafted for performance, designed for style.</p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button class="bg-primary text-white px-8 py-3 rounded-button font-medium hover:bg-primary/90 transition-all duration-300 whitespace-nowrap">Shop Collection</button>
+                    <button class="bg-transparent border-2 border-primary text-primary px-8 py-3 rounded-button font-medium hover:bg-primary/5 transition-all duration-300 whitespace-nowrap">Explore New Arrivals</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Categories -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Featured Categories</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Explore our curated collections of premium sportswear designed for performance and style.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="category-card group rounded-lg overflow-hidden shadow-lg relative">
+                    <div class="overflow-hidden h-[500px]">
+                        <img src="https://readdy.ai/api/search-image?query=premium%20sports%20footwear%20collection%20displayed%20elegantly%20on%20minimalist%20white%20shelves%2C%20high-quality%20athletic%20and%20casual%20shoes%2C%20professional%20lighting%2C%20clean%20modern%20aesthetic%2C%20luxury%20sports%20store%20display%20with%20subtle%20shadows%2C%20high-end%20product%20photography&width=600&height=700&seq=3&orientation=portrait" alt="Premium Footwear Collection" class="category-image w-full h-full object-cover object-top transition-transform duration-500">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-8">
+                        <h3 class="text-white text-3xl font-bold mb-3">Premium Footwear</h3>
+                        <p class="text-white/80 mb-6">Discover our exclusive collection of designer and athletic footwear</p>
+                        <a href="#" class="inline-block bg-white text-primary px-6 py-3 rounded-button font-medium hover:bg-gray-100 transition-colors duration-300 whitespace-nowrap w-max">Shop Footwear</a>
+                    </div>
+                </div>
+                
+                <div class="category-card group rounded-lg overflow-hidden shadow-lg relative">
+                    <div class="overflow-hidden h-[500px]">
+                        <img src="https://readdy.ai/api/search-image?query=authentic%20sports%20club%20jerseys%20collection%20displayed%20elegantly%20on%20mannequins%2C%20high-quality%20football%20and%20basketball%20team%20jerseys%2C%20professional%20lighting%2C%20clean%20modern%20aesthetic%2C%20luxury%20sports%20store%20display%20with%20subtle%20shadows%2C%20high-end%20product%20photography&width=600&height=700&seq=4&orientation=portrait" alt="Club Jerseys Collection" class="category-image w-full h-full object-cover object-top transition-transform duration-500">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-8">
+                        <h3 class="text-white text-3xl font-bold mb-3">Authentic Club Jerseys</h3>
+                        <p class="text-white/80 mb-6">Official jerseys from your favorite teams around the world</p>
+                        <a href="#" class="inline-block bg-white text-primary px-6 py-3 rounded-button font-medium hover:bg-gray-100 transition-colors duration-300 whitespace-nowrap w-max">Shop Jerseys</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Arrivals -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center mb-12">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-2">New Arrivals</h2>
+                    <p class="text-gray-600">The latest additions to our premium collection</p>
+                </div>
+                <div class="flex gap-2">
+                    <button id="prev-new-arrivals" class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-300 hover:bg-gray-100 transition-colors">
+                        <i class="ri-arrow-left-s-line"></i>
+                    </button>
+                    <button id="next-new-arrivals" class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-300 hover:bg-gray-100 transition-colors">
+                        <i class="ri-arrow-right-s-line"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="relative">
+                <div class="product-carousel flex overflow-x-auto gap-6 pb-4 snap-x snap-mandatory scrollbar-hide">
+                    <!-- Product 1 -->
+                    <div class="product-card min-w-[280px] snap-start">
+                        <div class="overflow-hidden rounded-lg mb-4 relative group">
+                            <img src="https://readdy.ai/api/search-image?query=premium%20white%20and%20gold%20football%20boots%20on%20minimalist%20background%2C%20professional%20product%20photography%2C%20clean%20lighting%2C%20luxury%20sports%20footwear%2C%20high-end%20athletic%20shoe%20with%20subtle%20shadows%2C%20detailed%20texture&width=400&height=400&seq=5&orientation=squarish" alt="Premium Football Boots" class="product-image w-full h-[350px] object-cover object-top transition-transform duration-500">
+                            <div class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
+                                <button class="w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-md hover:bg-gray-100 transition-colors">
+                                    <i class="ri-eye-line"></i>
+                                </button>
+                                <button class="w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-md hover:bg-gray-100 transition-colors">
+                                    <i class="ri-heart-line"></i>
+                                </button>
+                                <button class="w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-md hover:bg-gray-100 transition-colors">
+                                    <i class="ri-shopping-bag-line"></i>
+                                </button>
+                            </div>
+                            <div class="absolute top-3 left-3">
+                                <span class="bg-primary text-white text-xs px-3 py-1 rounded-full">New</span>
+                            </div>
+                        </div>
+                        <h3 class="font-medium text-lg mb-1">Elite Pro Football Boots</h3>
+                        <div class="flex items-center gap-2 mb-2">
+                            <div class="flex text-amber-400">
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-half-fill"></i>
+                            </div>
+                            <span class="text-sm text-gray-500">(24)</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="font-semibold">$189.99</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 2 -->
+                    <div class="product-card min-w-[280px] snap-start">
+                        <div class="overflow-hidden rounded-lg mb-4 relative group">
+                            <img src="https://readdy.ai/api/search-image?query=authentic%20blue%20football%20jersey%20on%20minimalist%20background%2C%20professional%20product%20photography%2C%20clean%20lighting%2C%20luxury%20sports%20apparel%2C%20high-end%20team%20shirt%20with%20subtle%20shadows%2C%20detailed%20fabric%20texture&width=400&height=400&seq=6&orientation=squarish" alt="Authentic Football Jersey" class="product-image w-full h-[350px] object-cover object-top transition-transform duration-500">
+                            <div class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
+                                <button class="w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-md hover:bg-gray-100 transition-colors">
+                                    <i class="ri-eye-line"></i>
+                                </button>
+                                <button class="w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-md hover:bg-gray-100 transition-colors">
+                                    <i class="ri-heart-line"></i>
+                                </button>
+                                <button class="w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-md hover:bg-gray-100 transition-colors">
+                                    <i class="ri-shopping-bag-line"></i>
+                                </button>
+                            </div>
+                            <div class="absolute top-3 left-3">
+                                <span class="bg-primary text-white text-xs px-3 py-1 rounded-full">New</span>
+                            </div>
+                        </div>
+                        <h3 class="font-medium text-lg mb-1">Chelsea FC Home Jersey 2025</h3>
+                        <div class="flex items-center gap-2 mb-2">
+                            <div class="flex text-amber-400">
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                            </div>
+                            <span class="text-sm text-gray-500">(42)</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="font-semibold">$119.99</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 3 -->
+                    <div class="product-card min-w-[280px] snap-start">
+                        <div class="overflow-hidden rounded-lg mb-4 relative group">
+                            <img src="https://readdy.ai/api/search-image?query=premium%20red%20basketball%20shoes%20on%20minimalist%20background%2C%20professional%20product%20photography%2C%20clean%20lighting%2C%20luxury%20sports%20footwear%2C%20high-end%20athletic%20shoe%20with%20subtle%20shadows%2C%20detailed%20texture&width=400&height=400&seq=7&orientation=squarish" alt="Premium Basketball Shoes" class="product-image w-full h-[350px] object-cover object-top transition-transform duration-500">
+                            <div class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
+                                <button class="w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-md hover:bg-gray-100 transition-colors">
+                                    <i class="ri-eye-line"></i>
+                                </button>
+                                <button class="w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-md hover:bg-gray-100 transition-colors">
+                                    <i class="ri-heart-line"></i>
+                                </button>
+                                <button class="w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-md hover:bg-gray-100 transition-colors">
+                                    <i class="ri-shopping-bag-line"></i>
+                                </button>
+                            </div>
+                            <div class="absolute top-3 left-3">
+                                <span class="bg-primary text-white text-xs px-3 py-1 rounded-full">New</span>
+                            </div>
+                        </div>
+                        <h3 class="font-medium text-lg mb-1">Air Precision Basketball Shoes</h3>
+                        <div class="flex items-center gap-2 mb-2">
+                            <div class="flex text-amber-400">
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-line"></i>
+                            </div>
+                            <span class="text-sm text-gray-500">(18)</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="font-semibold">$159.99</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 4 -->
+                    <div class="product-card min-w-[280px] snap-start">
+                        <div class="overflow-hidden rounded-lg mb-4 relative group">
+                            <img src="https://readdy.ai/api/search-image?query=authentic%20red%20and%20black%20basketball%20jersey%20on%20minimalist%20background%2C%20professional%20product%20photography%2C%20clean%20lighting%2C%20luxury%20sports%20apparel%2C%20high-end%20team%20shirt%20with%20subtle%20shadows%2C%20detailed%20fabric%20texture&width=400&height=400&seq=8&orientation=squarish" alt="Basketball Jersey" class="product-image w-full h-[350px] object-cover object-top transition-transform duration-500">
+                            <div class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
+                                <button class="w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-md hover:bg-gray-100 transition-colors">
+                                    <i class="ri-eye-line"></i>
+                                </button>
+                                <button class="w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-md hover:bg-gray-100 transition-colors">
+                                    <i class="ri-heart-line"></i>
+                                </button>
+                                <button class="w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-md hover:bg-gray-100 transition-colors">
+                                    <i class="ri-shopping-bag-line"></i>
+                                </button>
+                            </div>
+                            <div class="absolute top-3 left-3">
+                                <span class="bg-primary text-white text-xs px-3 py-1 rounded-full">New</span>
+                            </div>
+                        </div>
+                        <h3 class="font-medium text-lg mb-1">Chicago Bulls Away Jersey 2025</h3>
+                        <div class="flex items-center gap-2 mb-2">
+                            <div class="flex text-amber-400">
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-half-fill"></i>
+                            </div>
+                            <span class="text-sm text-gray-500">(31)</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="font-semibold">$129.99</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 5 -->
+                    <div class="product-card min-w-[280px] snap-start">
+                        <div class="overflow-hidden rounded-lg mb-4 relative group">
+                            <img src="https://readdy.ai/api/search-image?query=premium%20white%20running%20shoes%20on%20minimalist%20background%2C%20professional%20product%20photography%2C%20clean%20lighting%2C%20luxury%20sports%20footwear%2C%20high-end%20athletic%20shoe%20with%20subtle%20shadows%2C%20detailed%20texture&width=400&height=400&seq=9&orientation=squarish" alt="Premium Running Shoes" class="product-image w-full h-[350px] object-cover object-top transition-transform duration-500">
+                            <div class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
+                                <button class="w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-md hover:bg-gray-100 transition-colors">
+                                    <i class="ri-eye-line"></i>
+                                </button>
+                                <button class="w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-md hover:bg-gray-100 transition-colors">
+                                    <i class="ri-heart-line"></i>
+                                </button>
+                                <button class="w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-md hover:bg-gray-100 transition-colors">
+                                    <i class="ri-shopping-bag-line"></i>
+                                </button>
+                            </div>
+                            <div class="absolute top-3 left-3">
+                                <span class="bg-primary text-white text-xs px-3 py-1 rounded-full">New</span>
+                            </div>
+                        </div>
+                        <h3 class="font-medium text-lg mb-1">Ultra Boost Running Shoes</h3>
+                        <div class="flex items-center gap-2 mb-2">
+                            <div class="flex text-amber-400">
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                            </div>
+                            <span class="text-sm text-gray-500">(56)</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="font-semibold">$179.99</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Showcase -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Collection</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Explore our premium selection of footwear and authentic club jerseys</p>
+            </div>
+            
+            <div class="flex justify-center mb-10">
+                <div class="inline-flex bg-white p-1 rounded-full shadow-sm">
+                    <button class="px-6 py-2 rounded-full bg-primary text-white font-medium whitespace-nowrap">All Products</button>
+                    <button class="px-6 py-2 rounded-full text-gray-700 font-medium hover:bg-gray-100 transition-colors whitespace-nowrap">Footwear</button>
+                    <button class="px-6 py-2 rounded-full text-gray-700 font-medium hover:bg-gray-100 transition-colors whitespace-nowrap">Jerseys</button>
+                    <button class="px-6 py-2 rounded-full text-gray-700 font-medium hover:bg-gray-100 transition-colors whitespace-nowrap">Accessories</button>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- Product 1 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="overflow-hidden relative group">
+                        <img src="https://readdy.ai/api/search-image?query=premium%20black%20football%20boots%20on%20minimalist%20background%2C%20professional%20product%20photography%2C%20clean%20lighting%2C%20luxury%20sports%20footwear%2C%20high-end%20athletic%20shoe%20with%20subtle%20shadows%2C%20detailed%20texture&width=400&height=400&seq=10&orientation=squarish" alt="Premium Football Boots" class="product-image w-full h-[300px] object-cover object-top transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
+                            <button class="w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-md hover:bg-gray-100 transition-colors">
+                                <i class="ri-eye-line"></i>
+                            </button>
+                            <button class="w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-md hover:bg-gray-100 transition-colors">
+                                <i class="ri-heart-line"></i>
+                            </button>
+                            <button class="w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-md hover:bg-gray-100 transition-colors">
+                                <i class="ri-shopping-bag-line"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium text-lg mb-1">Predator Elite Football Boots</h3>
+                        <div class="flex items-center gap-2 mb-2">
+                            <div class="flex text-amber-400">
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-half-fill"></i>
+                            </div>
+                            <span class="text-sm text-gray-500">(38)</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="font-semibold">$199.99</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="overflow-hidden relative group">
+                        <img src="https://readdy.ai/api/search-image?query=authentic%20red%20football%20jersey%20on%20minimalist%20background%2C%20professional%20product%20photography%2C%20clean%20lighting%2C%20luxury%20sports%20apparel%2C%20high-end%20team%20shirt%20with%20subtle%20shadows%2C%20detailed%20fabric%20texture&width=400&height=400&seq=11&orientation=squarish" alt="Football Jersey" class="product-image w-full h-[300px] object-cover object-top transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
+                            <button class="w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-md hover:bg-gray-100 transition-colors">
+                                <i class="ri-eye-line"></i>
+                            </button>
+                            <button class="w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-md hover:bg-gray-100 transition-colors">
+                                <i class="ri-heart-line"></i>
+                            </button>
+                            <button class="w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-md hover:bg-gray-100 transition-colors">
+                                <i class="ri-shopping-bag-line"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium text-lg mb-1">Manchester United Home Jersey</h3>
+                        <div class="flex items-center gap-2 mb-2">
+                            <div class="flex text-amber-400">
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                            </div>
+                            <span class="text-sm text-gray-500">(72)</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="font-semibold">$119.99</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="overflow-hidden relative group">
+                        <img src="https://readdy.ai/api/search-image?query=premium%20blue%20basketball%20shoes%20on%20minimalist%20background%2C%20professional%20product%20photography%2C%20clean%20lighting%2C%20luxury%20sports%20footwear%2C%20high-end%20athletic%20shoe%20with%20subtle%20shadows%2C%20detailed%20texture&width=400&height=400&seq=12&orientation=squarish" alt="Basketball Shoes" class="product-image w-full h-[300px] object-cover object-top transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
+                            <button class="w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-md hover:bg-gray-100 transition-colors">
+                                <i class="ri-eye-line"></i>
+                            </button>
+                            <button class="w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-md hover:bg-gray-100 transition-colors">
+                                <i class="ri-heart-line"></i>
+                            </button>
+                            <button class="w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-md hover:bg-gray-100 transition-colors">
+                                <i class="ri-shopping-bag-line"></i>
+                            </button>
+                        </div>
+                        <div class="absolute top-3 left-3">
+                            <span class="bg-amber-500 text-white text-xs px-3 py-1 rounded-full">Sale</span>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium text-lg mb-1">Zoom Elite Basketball Shoes</h3>
+                        <div class="flex items-center gap-2 mb-2">
+                            <div class="flex text-amber-400">
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-line"></i>
+                            </div>
+                            <span class="text-sm text-gray-500">(45)</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="font-semibold">$149.99</span>
+                                <span class="text-gray-500 line-through ml-2">$189.99</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="overflow-hidden relative group">
+                        <img src="https://readdy.ai/api/search-image?query=authentic%20yellow%20and%20green%20football%20jersey%20on%20minimalist%20background%2C%20professional%20product%20photography%2C%20clean%20lighting%2C%20luxury%20sports%20apparel%2C%20high-end%20team%20shirt%20with%20subtle%20shadows%2C%20detailed%20fabric%20texture&width=400&height=400&seq=13&orientation=squarish" alt="Football Jersey" class="product-image w-full h-[300px] object-cover object-top transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
+                            <button class="w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-md hover:bg-gray-100 transition-colors">
+                                <i class="ri-eye-line"></i>
+                            </button>
+                            <button class="w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-md hover:bg-gray-100 transition-colors">
+                                <i class="ri-heart-line"></i>
+                            </button>
+                            <button class="w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-md hover:bg-gray-100 transition-colors">
+                                <i class="ri-shopping-bag-line"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium text-lg mb-1">Brazil National Team Jersey</h3>
+                        <div class="flex items-center gap-2 mb-2">
+                            <div class="flex text-amber-400">
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-half-fill"></i>
+                            </div>
+                            <span class="text-sm text-gray-500">(63)</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="font-semibold">$129.99</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 5 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="overflow-hidden relative group">
+                        <img src="https://readdy.ai/api/search-image?query=premium%20gray%20running%20shoes%20on%20minimalist%20background%2C%20professional%20product%20photography%2C%20clean%20lighting%2C%20luxury%20sports%20footwear%2C%20high-end%20athletic%20shoe%20with%20subtle%20shadows%2C%20detailed%20texture&width=400&height=400&seq=14&orientation=squarish" alt="Running Shoes" class="product-image w-full h-[300px] object-cover object-top transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
+                            <button class="w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-md hover:bg-gray-100 transition-colors">
+                                <i class="ri-eye-line"></i>
+                            </button>
+                            <button class="w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-md hover:bg-gray-100 transition-colors">
+                                <i class="ri-heart-line"></i>
+                            </button>
+                            <button class="w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-md hover:bg-gray-100 transition-colors">
+                                <i class="ri-shopping-bag-line"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium text-lg mb-1">Cloud Runner Pro Shoes</h3>
+                        <div class="flex items-center gap-2 mb-2">
+                            <div class="flex text-amber-400">
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-line"></i>
+                            </div>
+                            <span class="text-sm text-gray-500">(29)</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="font-semibold">$159.99</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 6 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="overflow-hidden relative group">
+                        <img src="https://readdy.ai/api/search-image?query=authentic%20white%20and%20blue%20basketball%20jersey%20on%20minimalist%20background%2C%20professional%20product%20photography%2C%20clean%20lighting%2C%20luxury%20sports%20apparel%2C%20high-end%20team%20shirt%20with%20subtle%20shadows%2C%20detailed%20fabric%20texture&width=400&height=400&seq=15&orientation=squarish" alt="Basketball Jersey" class="product-image w-full h-[300px] object-cover object-top transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
+                            <button class="w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-md hover:bg-gray-100 transition-colors">
+                                <i class="ri-eye-line"></i>
+                            </button>
+                            <button class="w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-md hover:bg-gray-100 transition-colors">
+                                <i class="ri-heart-line"></i>
+                            </button>
+                            <button class="w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-md hover:bg-gray-100 transition-colors">
+                                <i class="ri-shopping-bag-line"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium text-lg mb-1">Dallas Mavericks Home Jersey</h3>
+                        <div class="flex items-center gap-2 mb-2">
+                            <div class="flex text-amber-400">
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                            </div>
+                            <span class="text-sm text-gray-500">(51)</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="font-semibold">$124.99</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 7 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="overflow-hidden relative group">
+                        <img src="https://readdy.ai/api/search-image?query=premium%20black%20and%20gold%20tennis%20shoes%20on%20minimalist%20background%2C%20professional%20product%20photography%2C%20clean%20lighting%2C%20luxury%20sports%20footwear%2C%20high-end%20athletic%20shoe%20with%20subtle%20shadows%2C%20detailed%20texture&width=400&height=400&seq=16&orientation=squarish" alt="Tennis Shoes" class="product-image w-full h-[300px] object-cover object-top transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
+                            <button class="w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-md hover:bg-gray-100 transition-colors">
+                                <i class="ri-eye-line"></i>
+                            </button>
+                            <button class="w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-md hover:bg-gray-100 transition-colors">
+                                <i class="ri-heart-line"></i>
+                            </button>
+                            <button class="w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-md hover:bg-gray-100 transition-colors">
+                                <i class="ri-shopping-bag-line"></i>
+                            </button>
+                        </div>
+                        <div class="absolute top-3 left-3">
+                            <span class="bg-amber-500 text-white text-xs px-3 py-1 rounded-full">Sale</span>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium text-lg mb-1">Pro Court Tennis Shoes</h3>
+                        <div class="flex items-center gap-2 mb-2">
+                            <div class="flex text-amber-400">
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-half-fill"></i>
+                            </div>
+                            <span class="text-sm text-gray-500">(37)</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="font-semibold">$139.99</span>
+                                <span class="text-gray-500 line-through ml-2">$179.99</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 8 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="overflow-hidden relative group">
+                        <img src="https://readdy.ai/api/search-image?query=authentic%20black%20and%20white%20football%20jersey%20on%20minimalist%20background%2C%20professional%20product%20photography%2C%20clean%20lighting%2C%20luxury%20sports%20apparel%2C%20high-end%20team%20shirt%20with%20subtle%20shadows%2C%20detailed%20fabric%20texture&width=400&height=400&seq=17&orientation=squarish" alt="Football Jersey" class="product-image w-full h-[300px] object-cover object-top transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
+                            <button class="w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-md hover:bg-gray-100 transition-colors">
+                                <i class="ri-eye-line"></i>
+                            </button>
+                            <button class="w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-md hover:bg-gray-100 transition-colors">
+                                <i class="ri-heart-line"></i>
+                            </button>
+                            <button class="w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-md hover:bg-gray-100 transition-colors">
+                                <i class="ri-shopping-bag-line"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium text-lg mb-1">Juventus Home Jersey 2025</h3>
+                        <div class="flex items-center gap-2 mb-2">
+                            <div class="flex text-amber-400">
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-line"></i>
+                            </div>
+                            <span class="text-sm text-gray-500">(42)</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="font-semibold">$119.99</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <button class="bg-white border border-gray-300 text-primary px-8 py-3 rounded-button font-medium hover:bg-gray-50 transition-all duration-300 whitespace-nowrap">Load More Products</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Offers -->
+    <section class="special-offers py-20 relative">
+        <div class="absolute inset-0 bg-black/60"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="grid md:grid-cols-2 gap-10 items-center">
+                <div class="text-white">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Limited Time Offer</h2>
+                    <p class="text-white/80 text-lg mb-6">Get 25% off on selected premium footwear and authentic jerseys. Hurry, offer ends soon!</p>
+                    
+                    <div class="countdown-timer mb-8">
+                        <div class="countdown-box">
+                            <div class="text-2xl font-bold text-primary">02</div>
+                            <div class="text-xs text-gray-600">Days</div>
+                        </div>
+                        <div class="countdown-box">
+                            <div class="text-2xl font-bold text-primary">18</div>
+                            <div class="text-xs text-gray-600">Hours</div>
+                        </div>
+                        <div class="countdown-box">
+                            <div class="text-2xl font-bold text-primary">45</div>
+                            <div class="text-xs text-gray-600">Minutes</div>
+                        </div>
+                        <div class="countdown-box">
+                            <div class="text-2xl font-bold text-primary">12</div>
+                            <div class="text-xs text-gray-600">Seconds</div>
+                        </div>
+                    </div>
+                    
+                    <button class="bg-primary text-white px-8 py-3 rounded-button font-medium hover:bg-primary/90 transition-all duration-300 whitespace-nowrap">Shop Now</button>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
+                            <i class="ri-coupon-3-line text-primary text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold">Use Code: DIVINE25</h3>
+                            <p class="text-gray-600">For 25% off your purchase</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4 mb-6">
+                        <div class="flex items-center gap-3">
+                            <div class="w-6 h-6 flex items-center justify-center text-primary">
+                                <i class="ri-check-line"></i>
+                            </div>
+                            <p>Valid on all products over $100</p>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-6 h-6 flex items-center justify-center text-primary">
+                                <i class="ri-check-line"></i>
+                            </div>
+                            <p>Free shipping on all discounted items</p>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-6 h-6 flex items-center justify-center text-primary">
+                                <i class="ri-check-line"></i>
+                            </div>
+                            <p>30-day money-back guarantee</p>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-6 h-6 flex items-center justify-center text-primary">
+                                <i class="ri-check-line"></i>
+                            </div>
+                            <p>Offer ends May 16, 2025</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex">
+                        <input type="text" value="DIVINE25" readonly class="bg-gray-100 border-none px-4 py-2 rounded-l-button w-full focus:outline-none text-gray-700">
+                        <button class="bg-primary text-white px-4 py-2 rounded-r-button font-medium hover:bg-primary/90 transition-all duration-300 whitespace-nowrap">Copy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-20 newsletter-bg">
+        <div class="container mx-auto px-4">
+            <div class="max-w-2xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Stay Updated</h2>
+                <p class="text-gray-600 mb-8">Subscribe to our newsletter for exclusive offers, new arrivals, and insider-only discounts.</p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 mb-6">
+                    <div class="relative flex-grow">
+                        <input type="email" placeholder="Your email address" class="w-full px-4 py-3 pr-10 rounded-button border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/20 text-gray-700">
+                        <div class="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 flex items-center justify-center text-gray-400">
+                            <i class="ri-mail-line"></i>
+                        </div>
+                    </div>
+                    <button class="bg-primary text-white px-6 py-3 rounded-button font-medium hover:bg-primary/90 transition-all duration-300 whitespace-nowrap">Subscribe</button>
+                </div>
+                
+                <div class="flex items-center justify-center">
+                    <input type="checkbox" id="newsletter-consent" class="custom-checkbox">
+                    <label for="newsletter-consent" class="text-sm text-gray-600">I agree to receive marketing emails and accept the <a href="#" class="text-primary hover:underline">Privacy Policy</a></label>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <a href="#" class="text-3xl font-['Pacifico'] text-white mb-6 inline-block">logo</a>
+                    <p class="text-gray-400 mb-6">Premium sportswear and footwear for the modern athlete and fashion enthusiast.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary transition-colors">
+                            <i class="ri-facebook-fill"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary transition-colors">
+                            <i class="ri-instagram-line"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary transition-colors">
+                            <i class="ri-twitter-x-line"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary transition-colors">
+                            <i class="ri-youtube-line"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Shop</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">All Products</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Footwear</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Club Jerseys</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">New Arrivals</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Special Offers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Gift Cards</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Support</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">FAQs</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Shipping & Returns</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Size Guide</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Track Order</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Contact</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3">
+                            <div class="w-5 h-5 flex items-center justify-center mt-1 text-gray-400">
+                                <i class="ri-map-pin-line"></i>
+                            </div>
+                            <span class="text-gray-400">123 Fashion Street, London, UK</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="w-5 h-5 flex items-center justify-center mt-1 text-gray-400">
+                                <i class="ri-phone-line"></i>
+                            </div>
+                            <span class="text-gray-400">+44 (0) 123 456 7890</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="w-5 h-5 flex items-center justify-center mt-1 text-gray-400">
+                                <i class="ri-mail-line"></i>
+                            </div>
+                            <span class="text-gray-400">info@divinestore.com</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="w-5 h-5 flex items-center justify-center mt-1 text-gray-400">
+                                <i class="ri-time-line"></i>
+                            </div>
+                            <span class="text-gray-400">Mon-Fri: 9am-6pm<br>Sat-Sun: 10am-4pm</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-500 mb-4 md:mb-0">&copy; 2025 Divine Store. All rights reserved.</p>
+                    
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-6 flex items-center justify-center">
+                            <i class="ri-visa-fill text-2xl text-gray-400"></i>
+                        </div>
+                        <div class="w-10 h-6 flex items-center justify-center">
+                            <i class="ri-mastercard-fill text-2xl text-gray-400"></i>
+                        </div>
+                        <div class="w-10 h-6 flex items-center justify-center">
+                            <i class="ri-paypal-fill text-2xl text-gray-400"></i>
+                        </div>
+                        <div class="w-10 h-6 flex items-center justify-center">
+                            <i class="ri-apple-fill text-2xl text-gray-400"></i>
+                        </div>
+                        <div class="w-10 h-6 flex items-center justify-center">
+                            <i class="ri-google-fill text-2xl text-gray-400"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Header scroll effect
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    header.classList.add('bg-white', 'shadow-md');
+                    header.classList.remove('py-4');
+                    header.classList.add('py-2');
+                } else {
+                    header.classList.remove('bg-white', 'shadow-md');
+                    header.classList.remove('py-2');
+                    header.classList.add('py-4');
+                }
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // New Arrivals carousel navigation
+            const carousel = document.querySelector('.product-carousel');
+            const prevBtn = document.getElementById('prev-new-arrivals');
+            const nextBtn = document.getElementById('next-new-arrivals');
+            
+            nextBtn.addEventListener('click', function() {
+                carousel.scrollBy({ left: 300, behavior: 'smooth' });
+            });
+            
+            prevBtn.addEventListener('click', function() {
+                carousel.scrollBy({ left: -300, behavior: 'smooth' });
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Countdown timer
+            const updateCountdown = () => {
+                const now = new Date();
+                const endDate = new Date('May 16, 2025 23:59:59');
+                const diff = endDate - now;
+                
+                if (diff <= 0) {
+                    document.querySelector('.countdown-timer').innerHTML = '<p>Offer has ended</p>';
+                    return;
+                }
+                
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+                
+                document.querySelector('.countdown-timer').innerHTML = `
+                    <div class="countdown-box">
+                        <div class="text-2xl font-bold text-primary">${days.toString().padStart(2, '0')}</div>
+                        <div class="text-xs text-gray-600">Days</div>
+                    </div>
+                    <div class="countdown-box">
+                        <div class="text-2xl font-bold text-primary">${hours.toString().padStart(2, '0')}</div>
+                        <div class="text-xs text-gray-600">Hours</div>
+                    </div>
+                    <div class="countdown-box">
+                        <div class="text-2xl font-bold text-primary">${minutes.toString().padStart(2, '0')}</div>
+                        <div class="text-xs text-gray-600">Minutes</div>
+                    </div>
+                    <div class="countdown-box">
+                        <div class="text-2xl font-bold text-primary">${seconds.toString().padStart(2, '0')}</div>
+                        <div class="text-xs text-gray-600">Seconds</div>
+                    </div>
+                `;
+            };
+            
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Copy coupon code
+            const couponBtn = document.querySelector('.special-offers button');
+            const couponInput = document.querySelector('.special-offers input');
+            
+            couponBtn.addEventListener('click', function() {
+                couponInput.select();
+                document.execCommand('copy');
+                
+                const originalText = couponBtn.textContent;
+                couponBtn.textContent = 'Copied!';
+                
+                setTimeout(() => {
+                    couponBtn.textContent = originalText;
+                }, 2000);
+            });
+        });
+    </script>
+</body>
+</html>
